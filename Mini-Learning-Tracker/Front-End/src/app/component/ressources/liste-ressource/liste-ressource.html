@@ -1,0 +1,16 @@
+<h1>Liste des ressources</h1>
+
+<div class="ressources-container">
+  @for (ressource of ressources; track ressource.ressourceId) {
+    <article class="ressource-card">
+      <h2>{{ ressource.title }}</h2>
+      <p>{{ ressource.description }}</p>
+      <span class="ressource-type">{{ ressource.typeEnum }}</span>
+      <a [href]="ressource.url" target="_blank" rel="noopener noreferrer">
+        Voir la ressource
+      </a>
+    </article>
+  } @empty {
+    <p>Aucune ressource disponible.</p>
+  }
+</div>

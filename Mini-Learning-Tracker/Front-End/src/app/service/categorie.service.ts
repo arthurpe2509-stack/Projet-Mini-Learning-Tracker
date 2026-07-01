@@ -10,6 +10,7 @@ import { Category } from '../shared/models/category.model';
 export class CategorieService {
   getCategorieService() {
     // Implementation of the service method
+  }
   
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/categories`;

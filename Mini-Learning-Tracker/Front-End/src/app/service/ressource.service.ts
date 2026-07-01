@@ -12,11 +12,11 @@ export class RessourceService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/ressources`;
 
-  getRessources(): Observable<Ressource[]> {
+  getAllRessources(): Observable<Ressource[]> {
     return this.http.get<Ressource[]>(this.apiUrl);
   }
   
-  getRessource(ressourceId: string | null) : Observable<Ressource>{
+  getRessourceById(ressourceId: string | null) : Observable<Ressource>{
     return this.http.get<Ressource>(`${this.apiUrl}/${ressourceId}`);
   }
 }
