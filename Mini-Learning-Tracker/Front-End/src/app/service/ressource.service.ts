@@ -1,8 +1,22 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Ressource } from '../shared/models/ressource.model';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environment/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RessourceService {
 
+  private http = inject(HttpClient);
+  private apiUrl = `${environment.apiUrl}/ressources`;
+
+  getRessources(): Observable<Ressource[]> {
+    return this.http.get<Ressource[]>(this.apiUrl);
+  }
+  
+  getRessource(ressourceId: string | null) : Observable<Ressource>{
+    return this.http.get<Ressource>(`${this.apiUrl}/${ressourceId}`);
+  }
 }
