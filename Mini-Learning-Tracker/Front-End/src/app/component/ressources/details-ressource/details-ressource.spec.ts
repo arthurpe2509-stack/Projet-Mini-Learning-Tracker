@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { New } from './new';
+import { DetailsRessource } from './details-ressource';
 
-describe('New', () => {
-  let component: New;
-  let fixture: ComponentFixture<New>;
+describe('DetailsRessource', () => {
+  let component: DetailsRessource;
+  let fixture: ComponentFixture<DetailsRessource>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [New],
+      imports: [DetailsRessource],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(New);
+    fixture = TestBed.createComponent(DetailsRessource);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

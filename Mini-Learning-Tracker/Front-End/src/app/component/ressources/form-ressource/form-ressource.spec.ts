@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Id } from './id';
+import { FormRessource } from './form-ressource';
 
-describe('Id', () => {
-  let component: Id;
-  let fixture: ComponentFixture<Id>;
+describe('FormRessource', () => {
+  let component: FormRessource;
+  let fixture: ComponentFixture<FormRessource>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [Id],
+      imports: [FormRessource],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Id);
+    fixture = TestBed.createComponent(FormRessource);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
