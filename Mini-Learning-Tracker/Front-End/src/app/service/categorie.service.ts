@@ -15,6 +15,10 @@ export class CategorieService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/categories`;
 
+  create(data: Category): Observable<Category> {
+    return this.http.post<Category>(this.apiUrl, data);
+  }
+
   getCategories(): Observable<Category[]> {
     return this.http.get<Category[]>(this.apiUrl);
   }
