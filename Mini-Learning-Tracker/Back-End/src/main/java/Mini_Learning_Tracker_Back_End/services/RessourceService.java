@@ -4,6 +4,7 @@ import Mini_Learning_Tracker_Back_End.entity.RessourceEntity;
 import Mini_Learning_Tracker_Back_End.repositories.RessourceRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +26,7 @@ public class RessourceService {
     }
 
     public RessourceEntity saveRessource(RessourceEntity newRessource){
-      return ressourceRepository.save(newRessource);
+        newRessource.setCreatedAt(new Date());
+        return ressourceRepository.save(newRessource);
     }
 }
