@@ -1,39 +1,27 @@
-<form (ngSubmit)="onSubmit()">
+<form (ngSubmit)="onSubmit()" [formGroup]="form">
 
   <div>
     <label>title</label>
     <input formControlName="title" type="text" />
-    @if (form.get('title')?.invalid && form.get('title')?.touched) {
-    <span>Title requis </span>
-    }
+    <span *ngIf="form.get('title')?.invalid && form.get('title')?.touched">Title requis </span>
   </div>
 
   <div>
     <label>Description</label>
     <input formControlName="description" type="text" />
-    @if (form.get('description')?.invalid && form.get('description')?.touched) {
-    <span>Description requise</span>
-    }
+    <span *ngIf="form.get('description')?.invalid && form.get('description')?.touched">Description requise</span>
   </div>
 
-  <div>
+  <!-- <div>
     <label>Category</label>
     <input formControlName="category" type="text" />
-    @if (form.get('category')?.invalid && form.get('category')?.touched) {
-    <span>Catégorie requise</span>
-    }
-  </div>
-
-
+    <span *ngIf="form.get('category')?.invalid && form.get('category')?.touched">Catégorie requise</span>
+  </div> -->
 
   <button type="submit" [disabled]="form.invalid">Envoyer</button>
 
-  @if (success) {
-  <p>Ressource créée avec succès !</p>
-  }
+  <p *ngIf="success">Ressource créée avec succès !</p>
 
-  @if (errorMsg) {
-  <p>{{ errorMsg }}</p>
-  }
+  <p *ngIf="errorMsg">{{ errorMsg }}</p>
 
 </form>

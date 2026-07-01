@@ -17,9 +17,9 @@ export class FormRessources {
   errorMsg = 'Erreur lors de l\'envoi du formulaire';
 
   form: FormGroup = this.formBuilder.group({
-    title: ['', Validators.required],
-    description: ['', Validators.required],
-    category: ['', Validators.required],
+    title: ['', [Validators.required, Validators.minLength(3)]],
+    description: ['', [Validators.required, Validators.minLength(10)]],
+    //category: ['', [Validators.required, Validators.minLength(3)]],
   });
 
   onSubmit() {
