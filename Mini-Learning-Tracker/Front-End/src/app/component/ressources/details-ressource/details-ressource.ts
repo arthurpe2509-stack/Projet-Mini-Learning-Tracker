@@ -1,9 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { CategorieService } from '../../../service/categorie.service';
 
 @Component({
   selector: 'app-details-ressource',
   imports: [],
   templateUrl: './details-ressource.html',
-  styleUrl: './details-ressource.css',
+  styleUrls: ['./details-ressource.css'],
 })
-export class DetailsRessource {}
+export class DetailsRessource {
+  private categorieService = inject(CategorieService);
+
+  id: number = 0;
+  title: string = '';
+  description: string = '';
+  url: string = '';
+  type: string = '';
+  status: string = '';
+  createdAt: string = '';
+  ngOnInit() {
+    const category = this.categorieService.getCategorieService();
+    console.log('Category:', category);
+  }
+}

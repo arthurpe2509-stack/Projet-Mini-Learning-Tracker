@@ -4,6 +4,10 @@ import { Component } from '@angular/core';
   selector: 'app-form-categorie',
   imports: [],
   templateUrl: './form-categorie.html',
-  styleUrl: './form-categorie.css',
+  styleUrls: ['./form-categorie.css'],
 })
-export class FormCategorie {}
+export class FormCategorie {
+  id: number = 0;
+  name: string = '';
+  description: string = '';
+}

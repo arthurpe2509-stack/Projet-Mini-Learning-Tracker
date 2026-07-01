@@ -4,5 +4,7 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CategorieService {
-  
+  getCategorieService() {
+    // Implementation of the service method
+  }
 }
