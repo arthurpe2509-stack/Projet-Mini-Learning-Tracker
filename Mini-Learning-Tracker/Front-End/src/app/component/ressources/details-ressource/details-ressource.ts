@@ -1,5 +1,7 @@
 import { Component, inject } from '@angular/core';
-import { CategorieService } from '../../../service/categorie.service';
+import { RessourceService } from '../../../service/ressource.service';
+import { ActivatedRoute } from '@angular/router';
+import { Ressource } from '../../../shared/models/ressource.model';
 
 @Component({
   selector: 'app-details-ressource',
@@ -8,17 +10,21 @@ import { CategorieService } from '../../../service/categorie.service';
   styleUrls: ['./details-ressource.css'],
 })
 export class DetailsRessource {
-  private categorieService = inject(CategorieService);
 
-  id: number = 0;
-  title: string = '';
-  description: string = '';
-  url: string = '';
-  type: string = '';
-  status: string = '';
-  createdAt: string = '';
-  ngOnInit() {
-    const category = this.categorieService.getCategorieService();
-    console.log('Category:', category);
+  private ressourceService = inject(RessourceService);
+  private route = inject(ActivatedRoute);
+  ressource: Ressource | null = null
+
+  ngOnInit(): void {
+    const id = this.route.snapshot.paramMap.get('ressourceId');
+
+    this.ressourceService.getRessourceById(id).subscribe({
+      next: (data) => {
+        this.ressource = data;
+      },
+      error: (err) => {
+        console.error("Erreur lors du chargement de la ressource", err);
+      }
+    })
   }
 }

@@ -14,8 +14,9 @@ export class ListeRessource implements OnInit {
   ressources: Ressource[] = [];
 
   ngOnInit(): void {
-    this.ressourceService.getAllRessources().subscribe(data => {
-      this.ressources = data;
+    this.ressourceService.getAllRessources().subscribe({
+      next: (data) => this.ressources = data,
+      error: (err) => console.error('Erreur lors du chargement des ressources.', err)
     });
   }
 }
