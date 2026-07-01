@@ -9,7 +9,11 @@ import java.util.List;
 @Service
 public class CategorieService {
 
-    private CategorieRepository categorieRepository;
+    private final CategorieRepository categorieRepository;
+
+    public CategorieService(CategorieRepository categorieRepository) {
+        this.categorieRepository = categorieRepository;
+    }
 
     public List<CategorieEntity> findAllCategories () {
         return categorieRepository.findAll();

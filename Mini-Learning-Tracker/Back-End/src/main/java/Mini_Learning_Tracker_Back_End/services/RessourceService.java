@@ -4,12 +4,21 @@ import Mini_Learning_Tracker_Back_End.entity.RessourceEntity;
 import Mini_Learning_Tracker_Back_End.repositories.RessourceRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.UUID;
 
 @Service
 public class RessourceService {
 
-    private RessourceRepository ressourceRepository;
+    private final RessourceRepository ressourceRepository;
+
+    public RessourceService(RessourceRepository ressourceRepository) {
+        this.ressourceRepository = ressourceRepository;
+    }
+
+    public List<RessourceEntity> getAllRessources(){
+        return ressourceRepository.findAll();
+    }
 
     public RessourceEntity getRessourceById(UUID id) {
         return ressourceRepository.findRessourceEntityByRessourceId(id);
