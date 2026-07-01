@@ -3,6 +3,7 @@ package Mini_Learning_Tracker_Back_End.entity;
 import Mini_Learning_Tracker_Back_End.entity.Enum.statusEnum;
 import Mini_Learning_Tracker_Back_End.entity.Enum.typeEnum;
 import jakarta.persistence.*;
+import org.springframework.data.annotation.CreatedDate;
 
 import java.util.Date;
 import java.util.UUID;
@@ -61,5 +62,9 @@ public class RessourceEntity {
 
     public UUID getRessourceId() {
         return ressourceId;
+    }
+
+    public void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt;
     }
 }
