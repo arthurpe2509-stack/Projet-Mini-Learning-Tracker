@@ -1,26 +1,28 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { RessourceService } from '../../../service/ressource.service';
 import { Ressource } from '../../../shared/models/ressource.model';
+<<<<<<< HEAD
 import { Router, RouterLink } from '@angular/router';
+=======
+>>>>>>> 6150551 (fix)
 
 @Component({
   selector: 'app-liste-ressource',
-  imports: [RouterLink],
+  imports: [],
   templateUrl: './liste-ressource.html',
-  styleUrls: ['./liste-ressource.css'],
+  styleUrl: './liste-ressource.css',
 })
 export class ListeRessource implements OnInit {
 
   private ressourceService = inject(RessourceService);
-  ressources = signal([] as Ressource[]);
-  categories = signal([] as Category[]);
+  ressources: Ressource[] = [];
 
   ngOnInit(): void {
-    this.ressourceService.getAllRessources().subscribe({
-      next: (data) => this.ressources.set(data),
-      error: (err) => console.error('Erreur lors du chargement des ressources.', err)
+    this.ressourceService.getAllRessources().subscribe(data => {
+      this.ressources = data;
     });
   }
+<<<<<<< HEAD
   private RoutesRessourcesForm = inject(Router);
   navigateToRessourcesForm() {
     // Standard navigation
@@ -32,4 +34,6 @@ export class ListeRessource implements OnInit {
     // Standard navigation
     this.RoutesRessourcesList.navigate([`ressources/${ressourceId}`]);
   };
+=======
+>>>>>>> 6150551 (fix)
 }

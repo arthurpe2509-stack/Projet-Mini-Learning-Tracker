@@ -20,13 +20,6 @@ export class FormCategorie {
     name: ['', [Validators.required, Validators.minLength(3)]],
     description: ['', [Validators.required, Validators.minLength(10)]],
 
-<<<<<<< HEAD
-=======
-  form: FormGroup = this.formBuilder.group({
-    name: ['', Validators.required],
-    description: ['', Validators.required],
-
->>>>>>> e58ade1 (fix : fix de l'entrée de la sortie pour les categories dans les ressources)
   });
   onSubmit() {
     if (this.categoryform.invalid) {
