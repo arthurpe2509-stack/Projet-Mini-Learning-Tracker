@@ -30,7 +30,7 @@ public class RessourceController {
     }
 
     @PostMapping
-    public RessourceEntity postNewRessource(RessourceEntity newRessource) {
+    public RessourceEntity postNewRessource(@RequestBody RessourceEntity newRessource) {
         return ressourceService.saveRessource(newRessource);
     }
 }

@@ -2,10 +2,7 @@ package Mini_Learning_Tracker_Back_End.controller;
 
 import Mini_Learning_Tracker_Back_End.entity.CategorieEntity;
 import Mini_Learning_Tracker_Back_End.services.CategorieService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,7 +22,7 @@ public class CategorieController {
     }
 
     @PostMapping
-    public CategorieEntity postNewCategorie (CategorieEntity newCategorie){
+    public CategorieEntity postNewCategorie (@RequestBody CategorieEntity newCategorie){
         return categorieService.saveCategorie(newCategorie);
     }
 }
