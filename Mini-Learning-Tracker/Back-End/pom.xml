@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>Mini-Learning-Tracker-Back-End</groupId>
-	<artifactId>demo</artifactId>
+	<artifactId>mltb</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name/>
 	<description/>
