@@ -1,59 +1,35 @@
-# MiniLearningTracker
+# Contexte du projet
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.17.
+Créer une application où l'on peut référencer des ressources d'apprentissage : articles, vidéos, documentations, tutoriels, cours, etc.
 
-## Development server
+Chaque ressource peut avoir un statut parmi "À faire", "En cours", "Terminé", et peut être consultée dans une page détail.
 
-To start a local development server, run:
+Chaque ressource appartient à une catégorie, qu'il sera possible de créer, ex : "Algorithmique", "Backend", "Conception"...
 
-```bash
-ng serve
+Pas d'authentification : on considère que l'application est utilisée par une seule promotion ou une seule personne.
+
+## Frontend
+
+Le frontend a été réalisé en Angular 21
+
+### Build le projet
+
+```
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+### Lancer le projet
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
+```
+npm start
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+Les pages présentes seront les suivantes :
 
-```bash
-ng generate --help
 ```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
+/ 			    -> liste de toutes les ressources
+/resources/:id  -> détail d'une ressource
+/resources/new  -> formulaire de création d'une ressource
+/categories     -> liste de toutes les catégorie
+/categories/new -> formulaire de création d'une nouvelle catégorie
 ```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
