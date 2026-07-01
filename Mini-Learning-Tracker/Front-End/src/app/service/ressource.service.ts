@@ -12,6 +12,10 @@ export class RessourceService {
   private http = inject(HttpClient);
   private apiUrl = `${environment.apiUrl}/ressources`;
 
+  create(data: Ressource): Observable<Ressource> {
+    return this.http.post<Ressource>(this.apiUrl, data);
+  } 
+
   getAllRessources(): Observable<Ressource[]> {
     return this.http.get<Ressource[]>(this.apiUrl);
   }
