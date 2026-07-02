@@ -18,10 +18,12 @@
 
   <div>
     <label>Category</label>
-    <input formControlName="category" type="text" />
-    @if (form.get('category')?.invalid && form.get('category')?.touched) {
-    <span>Catégorie requise</span>
-    }
+    <select formControlName="category">
+      <option value="">-- Choisir une categorie --</option>
+      @for (c of categories(); track c) {
+      <option [value]="c">{{ c.name }}</option>
+      }
+    </select>
   </div>
 
   <div>
