@@ -4,7 +4,7 @@
     <label>title</label>
     <input formControlName="title" type="text" />
     @if (form.get('title')?.invalid && form.get('title')?.touched) {
-      <span>Title requis</span>
+    <span>Title requis</span>
     }
   </div>
 
@@ -12,26 +12,45 @@
     <label>Description</label>
     <input formControlName="description" type="text" />
     @if (form.get('description')?.invalid && form.get('description')?.touched) {
-      <span>Description requise</span>
+    <span>Description requise</span>
     }
   </div>
 
-  <!-- <div>
+  <div>
     <label>Category</label>
     <input formControlName="category" type="text" />
     @if (form.get('category')?.invalid && form.get('category')?.touched) {
-      <span>Catégorie requise</span>
+    <span>Catégorie requise</span>
     }
-  </div> -->
+  </div>
 
+  <div>
+    <label>Type</label>
+    <select formControlName="type">
+      <option value="">-- Choisir un type --</option>
+      @for (t of type; track t) {
+      <option [value]="t">{{ t }}</option>
+      }
+    </select>
+  </div>
+
+  <div>
+    <label>Status</label>
+    <select formControlName="status">
+      <option value="">-- Choisir un status --</option>
+      @for (s of status; track s) {
+      <option [value]="s">{{ s }}</option>
+      }
+    </select>
+  </div>
   <button type="submit" [disabled]="form.invalid">Envoyer</button>
 
   @if (success) {
-    <p>Ressource créée avec succès !</p>
+  <p>Ressource créée avec succès !</p>
   }
 
   @if (errorMsg) {
-    <p>{{ errorMsg }}</p>
+  <p>{{ errorMsg }}</p>
   }
 
 </form>

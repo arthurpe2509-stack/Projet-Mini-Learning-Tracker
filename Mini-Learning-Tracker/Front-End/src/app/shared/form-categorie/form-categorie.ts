@@ -13,6 +13,7 @@ export class FormCategorie {
   form: FormGroup = this.formBuilder.group({
     name: ['', Validators.required],
     description: ['', Validators.required],
+
   });
   onSubmit() {
     if (this.form.valid) {
