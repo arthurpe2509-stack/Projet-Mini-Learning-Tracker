@@ -4,7 +4,6 @@
   <article class="ressource-card">
     <h2>{{ ressource.title }}</h2>
     <p>{{ ressource.description }}</p>
-    <!-- <p>{{ ressource.category.name }}</p> -->
     <span class="ressource-type">{{ ressource.type }}</span>
     <a [href]="ressource.url" target="_blank" rel="noopener noreferrer"
       [routerLink]="['/ressources', ressource.ressourceId]">
@@ -17,8 +16,5 @@
 
   <button (click)="navigateToRessourcesForm()">Add New Resource</button>
 
-  <button (click)="navigateToCategoriesForm()">Add New Category</button>
-
-  <button (click)="navigateToCategories()">View Categories</button>
 
 </div>

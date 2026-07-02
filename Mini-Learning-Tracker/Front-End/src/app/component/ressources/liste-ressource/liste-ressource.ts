@@ -2,7 +2,6 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { RessourceService } from '../../../service/ressource.service';
 import { Ressource } from '../../../shared/models/ressource.model';
 import { Router, RouterLink } from '@angular/router';
-import { Category } from '../../../shared/models/category.model';
 
 @Component({
   selector: 'app-liste-ressource',
@@ -32,17 +31,5 @@ export class ListeRessource implements OnInit {
   navigateToRessourcesList(ressourceId: string) {
     // Standard navigation
     this.RoutesRessourcesList.navigate([`ressources/${ressourceId}`]);
-  };
-
-  private RoutesCategoriesForm = inject(Router);
-  navigateToCategoriesForm() {
-    // Standard navigation
-    this.RoutesCategoriesForm.navigate(['categories/new']);
-  };
-
-  private RoutesCategories = inject(Router);
-  navigateToCategories() {
-    // Standard navigation
-    this.RoutesCategories.navigate(['categories']);
   };
 }
