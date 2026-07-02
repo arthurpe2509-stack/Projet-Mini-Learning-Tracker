@@ -1,20 +1,165 @@
+.ressources-page {
+  min-height: 100vh;
+  width: 100%;
+  background-color: #f8f7f4;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+
+.ressources-title {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem 0;
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1f2937;
+  letter-spacing: -0.02em;
+}
+
+.ressources-title::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 4px;
+  margin-top: 0.75rem;
+  background-color: #d4af37;
+  border-radius: 2px;
+}
+
 .ressources-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 1rem;
-  }
-  
-  .ressource-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    padding: 1rem;
-  }
-  
-  .ressource-type {
-    display: inline-block;
-    background: #f0f0f0;
-    padding: 0.2rem 0.6rem;
-    border-radius: 4px;
-    font-size: 0.85rem;
-    margin: 0.5rem 0;
-  }
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+  padding: 2rem 2rem 3rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  counter-reset: ressource-index;
+}
+
+.ressource-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem 1.5rem 1.25rem;
+  background-color: #ffffff;
+  border-left: 4px solid #d4af37;
+  border-radius: 2px;
+  overflow: hidden;
+  counter-increment: ressource-index;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.ressource-card:hover {
+  transform: translateX(4px);
+  box-shadow: -2px 4px 16px rgba(0, 0, 0, 0.1);
+  border-left-color: #b8860b;
+}
+
+.ressource-card::before {
+  content: counter(ressource-index, decimal-leading-zero);
+  position: absolute;
+  top: -0.5rem;
+  right: 0.5rem;
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #f1efe9;
+  line-height: 1;
+  z-index: 0;
+  user-select: none;
+}
+
+.ressource-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ressource-card h2 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin: 0;
+  color: #1f2937;
+  padding-right: 2rem;
+}
+
+.ressource-card p {
+  font-size: 0.9rem;
+  line-height: 1.55;
+  color: #6b7280;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ressource-type {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #92400e;
+}
+
+.ressource-type::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #d4af37;
+}
+
+.ressource-card a {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  align-self: flex-start;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f2937;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.ressource-card a::after {
+  content: "→";
+  transition: transform 0.2s ease;
+}
+
+.ressource-card a:hover::after {
+  transform: translateX(4px);
+}
+
+.ressources-container > p {
+  grid-column: 1 / -1;
+  text-align: center;
+  color: #9ca3af;
+  padding: 2rem 0;
+  font-style: italic;
+}
+
+.ressources-container > button {
+  grid-column: 1 / -1;
+  justify-self: start;
+  margin-top: 1rem;
+  padding: 0.7rem 1.4rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #1f2937;
+  background-color: transparent;
+  border: 1.5px dashed #b8860b;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.ressources-container > button:hover {
+  background-color: #1f2937;
+  color: #ffffff;
+  border-style: solid;
+  border-color: #1f2937;
+}

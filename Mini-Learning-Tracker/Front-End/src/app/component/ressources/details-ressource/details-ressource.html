@@ -1,17 +1,21 @@
-<section>
-    <h1>
-        {{ressource().title}}
+<div class="ressource-detail-page">
+  <section class="ressource-detail-card">
+    <h1 class="ressource-detail-title">
+      {{ ressource().title }}
     </h1>
-    <section>
-        <p>
-            {{ressource().description}}
-        </p>
-        <p>
-            {{ressource().type}}
-        </p>
-        <p>
-            {{ressource().status}}
-        </p>
+
+    <section class="ressource-detail-body">
+      <p class="ressource-detail-description">
+        {{ ressource().description }}
+      </p>
+      <span class="ressource-type">
+        {{ ressource().type }}
+      </span>
+      <span class="ressource-status" [attr.data-status]="ressource().status">
+        {{ ressource().status }}
+      </span>
     </section>
-    <button (click)="navigateToHome()">Retour</button>
-</section>
+
+    <button class="btn-retour" (click)="navigateToHome()">← Retour</button>
+  </section>
+</div>
