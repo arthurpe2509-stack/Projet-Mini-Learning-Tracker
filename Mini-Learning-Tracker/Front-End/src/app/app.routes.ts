@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { ListeRessource } from './component/ressources/liste-ressource/liste-ressource';
 import { DetailsRessource } from './component/ressources/details-ressource/details-ressource';
 import { FormRessources } from './shared/form-ressources/form-ressources';
-import { ListeCategorie } from './categories/liste-categorie/liste-categorie';
+import { ListeCategorie } from './component/categories/liste-categorie/liste-categorie';
 import { FormCategorie } from './shared/form-categorie/form-categorie';
 
 export const routes: Routes = [
