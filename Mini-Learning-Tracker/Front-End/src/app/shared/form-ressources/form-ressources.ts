@@ -1,6 +1,8 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RessourceService } from '../../service/ressource.service';
+import { Router } from '@angular/router';
+import { CategorieService } from '../../service/categorie.service';
 
 
 @Component({
@@ -9,17 +11,23 @@ import { RessourceService } from '../../service/ressource.service';
   templateUrl: './form-ressources.html',
   styleUrls: ['./form-ressources.css'],
 })
-export class FormRessources {
+export class FormRessources implements OnInit {
+  
   private formBuilder = inject(FormBuilder);
   private ressourcesService = inject(RessourceService);
+  private categorieService = inject(CategorieService);
 
+  type = ['ARTICLE', 'VIDEO', 'DOCUMENTATION', 'COURSE', 'OTHER'];
+  status = ['TODO', 'IN_PROGRESS', 'DONE'];
   success = false;
-  errorMsg = 'Erreur lors de l\'envoi du formulaire';
+  errorMsg = '';
 
   form: FormGroup = this.formBuilder.group({
     title: ['', [Validators.required, Validators.minLength(3)]],
     description: ['', [Validators.required, Validators.minLength(10)]],
-    //category: ['', [Validators.required, Validators.minLength(3)]],
+    category: ['', [Validators.required, Validators.minLength(3)]],
+    type: ['', Validators.required],
+    status: ['', Validators.required],
   });
 
   onSubmit() {
@@ -37,5 +45,11 @@ export class FormRessources {
     })
 
   }
+
+  private RoutesHome = inject(Router);
+  navigateToHome() {
+    // Standard navigation
+    this.RoutesHome.navigate(['']);
+  };
 
 }
