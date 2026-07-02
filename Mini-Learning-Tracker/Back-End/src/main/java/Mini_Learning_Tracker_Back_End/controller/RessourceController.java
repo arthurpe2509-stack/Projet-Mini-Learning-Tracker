@@ -2,6 +2,7 @@ package Mini_Learning_Tracker_Back_End.controller;
 
 
 import Mini_Learning_Tracker_Back_End.entity.RessourceEntity;
+import Mini_Learning_Tracker_Back_End.entity.RessourceEntityIn;
 import Mini_Learning_Tracker_Back_End.services.RessourceService;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +31,7 @@ public class RessourceController {
     }
 
     @PostMapping
-    public RessourceEntity postNewRessource(@RequestBody RessourceEntity newRessource) {
-        return ressourceService.saveRessource(newRessource);
+    public void postNewRessource(@RequestBody RessourceEntityIn newRessource) {
+        ressourceService.saveRessource(newRessource);
     }
 }
