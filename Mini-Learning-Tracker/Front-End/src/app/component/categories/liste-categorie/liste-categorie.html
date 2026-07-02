@@ -1,1 +1,17 @@
-<p>liste-categorie works!</p>
+<div class="category-container">
+    @for (category of categories(); track category.categorieId) {
+    <article class="category-card">
+        <h2>{{ category.name }}</h2>
+        <p>{{ category.description }}</p>
+
+    </article>
+    } @empty {
+    <p>Aucune catégorie disponible.</p>
+    }
+
+
+
+    <button (click)="navigateToRessourcesForm()">Add New Category</button>
+    <button (click)="navigateToHome()">Retour</button>
+
+</div>

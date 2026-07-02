@@ -1,14 +1,24 @@
 <div class="ressources-container">
 
   @for (ressource of ressources(); track ressource.ressourceId) {
-    <article class="ressource-card">
-      <h2>{{ ressource.title }}</h2>
-      <p>{{ ressource.description }}</p>
-      <span class="ressource-type">{{ ressource.type }}</span>
-      <a [href]="ressource.url" target="_blank" rel="noopener noreferrer">
-        Voir la ressource
-      </a>
-    </article>
-  <button (click)="navigateToRessourcesForm()">Add New Resource</button>
+  <article class="ressource-card">
+    <h2>{{ ressource.title }}</h2>
+    <p>{{ ressource.description }}</p>
+    <!-- <p>{{ ressource.category.name }}</p> -->
+    <span class="ressource-type">{{ ressource.type }}</span>
+    <a [href]="ressource.url" target="_blank" rel="noopener noreferrer"
+      [routerLink]="['/ressources', ressource.ressourceId]">
+      Voir la ressource
+    </a>
+  </article>
+  } @empty {
+  <p>Aucune ressource disponible.</p>
   }
+
+  <button (click)="navigateToRessourcesForm()">Add New Resource</button>
+
+  <button (click)="navigateToCategoriesForm()">Add New Category</button>
+
+  <button (click)="navigateToCategories()">View Categories</button>
+
 </div>
