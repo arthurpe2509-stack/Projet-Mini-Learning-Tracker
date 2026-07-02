@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { RessourceService } from '../../../service/ressource.service';
 import { ActivatedRoute } from '@angular/router';
 import { Ressource } from '../../../shared/models/ressource.model';
@@ -13,14 +13,14 @@ export class DetailsRessource {
 
   private ressourceService = inject(RessourceService);
   private route = inject(ActivatedRoute);
-  ressource: Ressource | null = null
+  ressource = signal({} as Ressource);
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('ressourceId');
 
     this.ressourceService.getRessourceById(id).subscribe({
       next: (data) => {
-        this.ressource = data;
+        this.ressource.set(data);
       },
       error: (err) => {
         console.error("Erreur lors du chargement de la ressource", err);
