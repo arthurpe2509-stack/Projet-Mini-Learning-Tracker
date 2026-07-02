@@ -2,7 +2,6 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RessourceService } from '../../service/ressource.service';
 import { Router } from '@angular/router';
-import { CategorieService } from '../../service/categorie.service';
 
 
 @Component({
