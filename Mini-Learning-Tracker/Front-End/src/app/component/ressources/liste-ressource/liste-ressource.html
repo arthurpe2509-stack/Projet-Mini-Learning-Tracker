@@ -4,9 +4,18 @@
       <h2>{{ ressource.title }}</h2>
       <p>{{ ressource.description }}</p>
       <span class="ressource-type">{{ ressource.type }}</span>
-      <a [href]="ressource.url" target="_blank" rel="noopener noreferrer"> Voir la ressource </a>
+      <a
+        [href]="ressource.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        [routerLink]="['/ressources', ressource.ressourceId]"
+      >
+        Voir la ressource
+      </a>
     </article>
   } @empty {
     <p>Aucune ressource disponible.</p>
   }
+
+  <button (click)="navigateToRessourcesForm()">Add New Resource</button>
 </div>
