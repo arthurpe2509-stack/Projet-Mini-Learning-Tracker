@@ -1,6 +1,7 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RessourceService } from '../../service/ressource.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -42,5 +43,11 @@ export class FormRessources {
     })
 
   }
+
+  private RoutesHome = inject(Router);
+  navigateToHome() {
+    // Standard navigation
+    this.RoutesHome.navigate(['']);
+  };
 
 }

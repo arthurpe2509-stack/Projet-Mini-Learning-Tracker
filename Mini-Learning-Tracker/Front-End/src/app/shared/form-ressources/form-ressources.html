@@ -44,6 +44,7 @@
     </select>
   </div>
   <button type="submit" [disabled]="form.invalid">Envoyer</button>
+  <button (click)="navigateToHome()">Retour</button>
 
   @if (success) {
   <p>Ressource créée avec succès !</p>

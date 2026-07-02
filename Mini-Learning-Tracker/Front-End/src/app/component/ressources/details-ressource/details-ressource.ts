@@ -1,6 +1,6 @@
 import { Component, inject, signal } from '@angular/core';
 import { RessourceService } from '../../../service/ressource.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Ressource } from '../../../shared/models/ressource.model';
 
 @Component({
@@ -27,4 +27,10 @@ export class DetailsRessource {
       }
     })
   }
+
+  private RoutesHome = inject(Router);
+  navigateToHome() {
+    // Standard navigation
+    this.RoutesHome.navigate(['']);
+  };
 }
