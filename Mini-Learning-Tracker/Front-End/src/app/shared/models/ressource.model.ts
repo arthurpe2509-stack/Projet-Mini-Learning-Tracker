@@ -7,8 +7,8 @@ export interface Ressource {
     title: string;
     description: string;
     url: string;
-    typeEnum: ResourceEnum;
-    statusEnum: StatusEnum;
+    type: ResourceEnum;
+    status: StatusEnum;
     createdAt: Date;
     category: Category;
   }

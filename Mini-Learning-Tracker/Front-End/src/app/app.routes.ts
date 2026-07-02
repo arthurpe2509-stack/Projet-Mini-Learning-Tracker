@@ -8,7 +8,7 @@ import { FormCategorie } from './shared/form-categorie/form-categorie';
 export const routes: Routes = [
     { path : '', component: ListeRessource },
     { path : 'ressources/new', component : FormRessources },
-    { path : 'ressources/:ressourdId', component: DetailsRessource },
+    { path : 'ressources/:ressourceId', component: DetailsRessource },
     { path : 'categories', component: ListeCategorie },
     { path : 'categories/new', component: FormCategorie },
 ];
