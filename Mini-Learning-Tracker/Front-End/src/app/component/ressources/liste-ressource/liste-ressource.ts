@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
 import { RessourceService } from '../../../service/ressource.service';
 import { Ressource } from '../../../shared/models/ressource.model';
 
@@ -11,11 +11,11 @@ import { Ressource } from '../../../shared/models/ressource.model';
 export class ListeRessource implements OnInit {
 
   private ressourceService = inject(RessourceService);
-  ressources: Ressource[] = [];
+  ressources = signal([] as Ressource[]);
 
   ngOnInit(): void {
     this.ressourceService.getAllRessources().subscribe({
-      next: (data) => this.ressources = data,
+      next: (data) => this.ressources.set(data),
       error: (err) => console.error('Erreur lors du chargement des ressources.', err)
     });
   }
