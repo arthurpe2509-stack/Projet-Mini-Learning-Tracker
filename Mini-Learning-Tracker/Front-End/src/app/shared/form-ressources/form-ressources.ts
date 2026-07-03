@@ -21,7 +21,7 @@ export class FormRessources implements OnInit {
   type = ['ARTICLE', 'VIDEO', 'DOCUMENTATION', 'COURSE', 'OTHER'];
   status = ['TODO', 'IN_PROGRESS', 'DONE'];
   categories = signal([] as Category[]);
-  // ngon init et stocker dans liste de catégory avec signal
+
   success = false;
   errorMsg = '';
 
