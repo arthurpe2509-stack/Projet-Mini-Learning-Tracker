@@ -2,10 +2,8 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { RessourceService } from '../../service/ressource.service';
 import { Router } from '@angular/router';
-import { ListeCategorie } from '../../component/categories/liste-categorie/liste-categorie';
 import { Category } from '../models/category.model';
 import { CategorieService } from '../../service/categorie.service';
-
 
 @Component({
   selector: 'app-form-ressources',
@@ -43,23 +41,21 @@ export class FormRessources implements OnInit {
         this.form.reset();
       },
       error: (err) => {
-        this.errorMsg = 'Erreur lors de l\'envoi : ' + err.message;
-      }
-    })
-
+        this.errorMsg = "Erreur lors de l'envoi : " + err.message;
+      },
+    });
   }
 
   private RoutesHome = inject(Router);
   navigateToHome() {
     // Standard navigation
     this.RoutesHome.navigate(['']);
-  };
-
+  }
 
   ngOnInit(): void {
     this.categorieService.getCategories().subscribe({
       next: (data) => this.categories.set(data),
-      error: (err) => console.error('Erreur lors du chargement des catégories.', err)
+      error: (err) => console.error('Erreur lors du chargement des catégories.', err),
     });
   }
 }

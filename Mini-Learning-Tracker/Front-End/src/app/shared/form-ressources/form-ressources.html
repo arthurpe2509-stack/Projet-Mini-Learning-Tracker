@@ -19,14 +19,14 @@
     </div>
 
     <div class="form-group">
-      <label for="category">Catégorie</label>
-      <select id="category" formControlName="category">
+      <label for="categorieId">Catégorie</label>
+      <select id="categorieId" formControlName="categorieId">
         <option value="">-- Choisir une catégorie --</option>
         @for (c of categories(); track c.categorieId) {
           <option [value]="c.categorieId">{{ c.name }}</option>
         }
       </select>
-      @if (form.get('category')?.invalid && form.get('category')?.touched) {
+      @if (form.get('categorieId')?.invalid && form.get('categorieId')?.touched) {
         <span class="form-error">Catégorie requise</span>
       }
     </div>
@@ -62,46 +62,6 @@
 
     @if (errorMsg) {
       <p class="form-error-msg">{{ errorMsg }}</p>
-    }
-
-    <div>
-      <label>Category</label>
-      <select formControlName="categorieId">
-        <option value="">-- Choisir une categorie --</option>
-        @for (c of categories(); track c) {
-          <option [value]="c.categorieId">{{ c.name }}</option>
-        }
-      </select>
-    </div>
-
-    <div>
-      <label>Type</label>
-      <select formControlName="type">
-        <option value="">-- Choisir un type --</option>
-        @for (t of type; track t) {
-          <option [value]="t">{{ t }}</option>
-        }
-      </select>
-    </div>
-
-    <div>
-      <label>Status</label>
-      <select formControlName="status">
-        <option value="">-- Choisir un status --</option>
-        @for (s of status; track s) {
-          <option [value]="s">{{ s }}</option>
-        }
-      </select>
-    </div>
-    <button type="submit" [disabled]="form.invalid">Envoyer</button>
-    <button (click)="navigateToHome()">Retour</button>
-
-    @if (success) {
-      <p>Ressource créée avec succès !</p>
-    }
-
-    @if (errorMsg) {
-      <p>{{ errorMsg }}</p>
     }
   </form>
 </div>

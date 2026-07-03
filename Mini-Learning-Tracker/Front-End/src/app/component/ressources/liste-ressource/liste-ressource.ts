@@ -11,7 +11,6 @@ import { Category } from '../../../shared/models/category.model';
   styleUrls: ['./liste-ressource.css'],
 })
 export class ListeRessource implements OnInit {
-
   private ressourceService = inject(RessourceService);
   ressources = signal([] as Ressource[]);
   categories = signal([] as Category[]);
@@ -19,30 +18,30 @@ export class ListeRessource implements OnInit {
   ngOnInit(): void {
     this.ressourceService.getAllRessources().subscribe({
       next: (data) => this.ressources.set(data),
-      error: (err) => console.error('Erreur lors du chargement des ressources.', err)
+      error: (err) => console.error('Erreur lors du chargement des ressources.', err),
     });
   }
   private RoutesRessourcesForm = inject(Router);
   navigateToRessourcesForm() {
     // Standard navigation
     this.RoutesRessourcesForm.navigate(['ressources/new']);
-  };
+  }
 
   private RoutesRessourcesList = inject(Router);
   navigateToRessourcesList(ressourceId: string) {
     // Standard navigation
     this.RoutesRessourcesList.navigate([`ressources/${ressourceId}`]);
-  };
+  }
 
   private RoutesCategoriesForm = inject(Router);
   navigateToCategoriesForm() {
     // Standard navigation
     this.RoutesCategoriesForm.navigate(['categories/new']);
-  };
+  }
 
   private RoutesCategories = inject(Router);
   navigateToCategories() {
     // Standard navigation
     this.RoutesCategories.navigate(['categories']);
-  };
+  }
 }
