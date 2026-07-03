@@ -18,10 +18,10 @@
 
   <div>
     <label>Category</label>
-    <select formControlName="category">
+    <select formControlName="categorieId">
       <option value="">-- Choisir une categorie --</option>
       @for (c of categories(); track c) {
-      <option [value]="c">{{ c.name }}</option>
+      <option [value]="c.categorieId">{{ c.name }}</option>
       }
     </select>
   </div>
