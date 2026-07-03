@@ -1,0 +1,127 @@
+.ressource-detail-page {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 4rem 2rem;
+    background-color: #f8f7f4;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  
+  .ressource-detail-card {
+    position: relative;
+    width: 100%;
+    max-width: 640px;
+    background-color: #ffffff;
+    border-left: 4px solid #d4af37;
+    border-radius: 2px;
+    padding: 2.5rem 2.5rem 2rem;
+    box-shadow: -2px 4px 20px rgba(0, 0, 0, 0.06);
+  }
+  
+  .ressource-detail-title {
+    font-size: 1.75rem;
+    font-weight: 800;
+    color: #1f2937;
+    letter-spacing: -0.02em;
+    margin: 0 0 0.75rem;
+    padding-right: 1rem;
+  }
+  
+  .ressource-detail-title::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 4px;
+    margin-top: 0.75rem;
+    background-color: #d4af37;
+    border-radius: 2px;
+  }
+  
+  .ressource-detail-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  
+  .ressource-detail-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #4b5563;
+    margin: 0;
+  }
+  
+  .ressource-type,
+  .ressource-status {
+    align-self: flex-start;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  
+  .ressource-type {
+    color: #92400e;
+  }
+  
+  .ressource-type::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #d4af37;
+  }
+  
+  .ressource-status {
+    color: #065f46;
+  }
+  
+  .ressource-status::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #10b981;
+  }
+  
+  /* Variante visuelle selon le statut, via attribut data */
+  .ressource-status[data-status="inactive"] {
+    color: #991b1b;
+  }
+  
+  .ressource-status[data-status="inactive"]::before {
+    background-color: #dc2626;
+  }
+  
+  .ressource-status[data-status="pending"] {
+    color: #92400e;
+  }
+  
+  .ressource-status[data-status="pending"]::before {
+    background-color: #d97706;
+  }
+  
+  .btn-retour {
+    margin-top: 2rem;
+    padding: 0.7rem 1.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1f2937;
+    background-color: transparent;
+    border: 1.5px dashed #b8860b;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  .btn-retour:hover {
+    background-color: #1f2937;
+    color: #ffffff;
+    border-style: solid;
+    border-color: #1f2937;
+  }
