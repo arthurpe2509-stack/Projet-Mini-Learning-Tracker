@@ -1,1 +1,0 @@
-export type ResourceEnum = 'ARTICLE' | 'VIDEO' | 'DOCUMENTATION' | 'COURSE' | 'OTHER';

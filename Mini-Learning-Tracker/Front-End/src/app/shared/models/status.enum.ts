@@ -1,1 +1,0 @@
-export type StatusEnum = 'TODO' | 'IN PROGRESS' | 'DONE';
