@@ -6,6 +6,7 @@
       <article class="ressource-card" [attr.data-type]="ressource.type">
         <h2>{{ ressource.title }}</h2>
         <p>{{ ressource.description }}</p>
+        <p>{{ ressource.category.name }}</p>
         <span class="ressource-type">{{ ressource.type }}</span>
         <a [routerLink]="['/ressources', ressource.ressourceId]"> Voir la ressource </a>
       </article>
@@ -14,5 +15,7 @@
     }
 
     <button (click)="navigateToRessourcesForm()">Add New Resource</button>
+    <button (click)="navigateToCategoriesForm()">Add New Category</button>
+    <button (click)="navigateToCategories()">View Categories</button>
   </div>
 </div>

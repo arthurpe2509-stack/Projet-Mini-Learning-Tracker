@@ -1,18 +1,26 @@
-<form (ngSubmit)="onSubmit()">
-  <div>
-    <label>title</label>
-    <input type="text" name="title" />
-    @if (false) {
-      <span>Title requis </span>
-    }
-  </div>
+<div class="form-page">
+  <form class="ressource-form" (ngSubmit)="onSubmit()" [formGroup]="categoryform">
+    <h1 class="form-title">Nouvelle catégorie</h1>
 
-  <div>
-    <label>Description</label>
-    <input type="text" name="description" />
-    @if (false) {
-      <span>Description requise</span>
-    }
-  </div>
-  <button type="submit" [disabled]="form.invalid">Envoyer</button>
-</form>
+    <div class="form-group">
+      <label for="name">Nom</label>
+      <input id="name" type="text" formControlName="name" />
+      @if (categoryform.get('name')?.invalid && categoryform.get('name')?.touched) {
+        <span class="form-error">Nom requis</span>
+      }
+    </div>
+
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input id="description" type="text" formControlName="description" />
+      @if (categoryform.get('description')?.invalid && categoryform.get('description')?.touched) {
+        <span class="form-error">Description requise</span>
+      }
+    </div>
+
+    <div class="form-actions">
+      <button type="submit" class="btn-submit" [disabled]="categoryform.invalid">Envoyer</button>
+      <button type="button" class="btn-retour" (click)="navigateToHome()">← Retour</button>
+    </div>
+  </form>
+</div>

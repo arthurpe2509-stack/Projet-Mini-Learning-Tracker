@@ -20,7 +20,12 @@
 
     <div class="form-group">
       <label for="category">Catégorie</label>
-      <input id="category" formControlName="category" type="text" />
+      <select id="category" formControlName="category">
+        <option value="">-- Choisir une catégorie --</option>
+        @for (c of categories(); track c.categorieId) {
+          <option [value]="c.categorieId">{{ c.name }}</option>
+        }
+      </select>
       @if (form.get('category')?.invalid && form.get('category')?.touched) {
         <span class="form-error">Catégorie requise</span>
       }
