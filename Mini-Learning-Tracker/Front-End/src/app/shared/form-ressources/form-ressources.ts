@@ -28,7 +28,7 @@ export class FormRessources implements OnInit {
   form: FormGroup = this.formBuilder.group({
     title: ['', [Validators.required, Validators.minLength(3)]],
     description: ['', [Validators.required, Validators.minLength(10)]],
-    category: ['', [Validators.required]],
+    categorieId: ['', [Validators.required]],
     type: ['', Validators.required],
     status: ['', Validators.required],
   });

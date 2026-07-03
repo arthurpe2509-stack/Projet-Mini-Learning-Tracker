@@ -34,9 +34,9 @@ public class RessourceService {
         RessourceEntity newRessource = new RessourceEntity();
         newRessource.setTitle(newRessourceIn.getTitle());
         newRessource.setUrl(newRessourceIn.getUrl());
-        newRessource.setType(newRessource.getType());
-        newRessource.setStatus(newRessource.getStatus());
-        newRessource.setDescription(newRessource.getDescription());
+        newRessource.setType(newRessourceIn.getType());
+        newRessource.setStatus(newRessourceIn.getStatus());
+        newRessource.setDescription(newRessourceIn.getDescription());
         newRessource.setCreatedAt(new Date());
         newRessource.setCategorie(categorieRepository.getReferenceById(newRessourceIn.getCategorieId()));
 
