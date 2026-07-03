@@ -10,5 +10,5 @@ export interface Ressource {
     type: ResourceEnum;
     status: StatusEnum;
     createdAt: Date;
-    category: Category;
+    categorieId: String;
   }
