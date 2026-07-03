@@ -3,7 +3,7 @@ package Mini_Learning_Tracker_Back_End.entity;
 import Mini_Learning_Tracker_Back_End.entity.Enum.statusEnum;
 import Mini_Learning_Tracker_Back_End.entity.Enum.typeEnum;
 import jakarta.persistence.*;
-import org.springframework.data.annotation.CreatedDate;
+
 
 import java.util.Date;
 import java.util.UUID;
@@ -29,11 +29,11 @@ public class RessourceEntity {
     private Date createdAt;
 
     @ManyToOne
-    @JoinColumn(name = "categorie_categroei_id")
-    private CategorieEntity categorieEntity;
+    @JoinColumn(name = "categorie_id")
+    private CategorieEntity categorie;
 
     public CategorieEntity getCategorie() {
-        return categorieEntity;
+        return categorie;
     }
 
     public Date getCreatedAt() {
@@ -66,5 +66,33 @@ public class RessourceEntity {
 
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
+    }
+
+    public void setRessourceId(UUID ressourceId) {
+        this.ressourceId = ressourceId;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setType(typeEnum type) {
+        this.type = type;
+    }
+
+    public void setStatus(statusEnum status) {
+        this.status = status;
+    }
+
+    public void setCategorie(CategorieEntity categorie) {
+        this.categorie = categorie;
     }
 }
